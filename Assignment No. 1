@@ -1,0 +1,88 @@
+/* 
+Assingment No.=1 A problem of number of zeroes.
+Statement: Given an array of 1s and 0s which has all
+1s first followed by all 0s? Find the number of 0s.
+Count the number of zeroes in the given array.
+Input: arr[] = {1, 1, 1, 1, 0, 0} Output: 2
+Input: arr[] = {1, 0, 0, 0, 0} Output: 4
+*/
+
+#include<iostream>
+using namespace std;
+int main()
+{
+    int a[10],n,i,count=0;
+    cout<<"\n Enter the Input element of array=";
+    cin>>n;
+    for(i=0;i<n;i++)
+    {
+        cin>>a[i];
+    }
+    int mid=0,hi=n-1,lo=0,temp;
+        while (hi>=lo)
+        {
+            mid=(lo+hi)/2;
+            if(a[mid]==0)
+            {
+                hi=mid-1;
+            }
+            else if (a[mid]==1)
+            {
+                lo=mid+1;
+            }
+            if(a[mid]==0 && a[mid-1]==1)
+            {
+                temp=mid;
+            } 
+        }
+        count=n-temp;
+    cout<<"\nThe number of'0'="<<count;
+    cout<<"\n";
+ }
+ 
+ /* Output=>student@student-Veriton-M200-H61:~$ g++ anant.cpp
+            student@student-Veriton-M200-H61:~$ ./a.out
+
+Enter the Input element of array=5
+1
+1
+1
+1
+0
+The number of'0's=1
+student@student-Veriton-M200-H61:~$ g++ anant.cpp
+student@student-Veriton-M200-H61:~$ ./a.out
+
+Enter the Input element of array=1
+1
+The number of'0's=1
+student@student-Veriton-M200-H61:~$ g++ anant.cpp
+student@student-Veriton-M200-H61:~$ ./a.out
+
+Enter the Input element of array=6
+1
+1
+1
+1
+0
+0
+The number of'0's=2
+student@student-Veriton-M200-H61:~$ ./a.out
+
+Enter the Input element of array=5
+1 
+1
+1
+1
+0
+The number of'0's=1
+student@student-Veriton-M200-H61:~$ ./a.out
+
+ Enter the size of array=5
+1
+0
+0
+1
+0
+The number of'0's=4
+*/
